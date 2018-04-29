@@ -1,0 +1,24 @@
+DROP TABLE reviews;
+DROP TABLE fans;
+DROP TABLE albums;
+
+
+CREATE TABLE fans (
+  id SERIAL4 PRIMARY KEY,
+  name VARCHAR(255),
+  location VARCHAR(255)
+);
+
+CREATE TABLE albums (
+  id SERIAL4 PRIMARY KEY,
+  name VARCHAR(255),
+  artist VARCHAR(255),
+  year VARCHAR(255)
+);
+
+CREATE TABLE reviews (
+  id SERIAL4 PRIMARY KEY,
+  rating VARCHAR(255),
+  fan_id INT4 REFERENCES fans(id) ON DELETE CASCADE,
+  album_id INT4 REFERENCES albums(id) ON DELETE CASCADE
+);
